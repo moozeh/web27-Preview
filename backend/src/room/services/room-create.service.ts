@@ -63,6 +63,6 @@ export class RoomCreateService {
 
         return createHash("sha256")
             .update(id + process.env.SESSION_HASH)
-            .digest("hex");
+            .digest("base64");
     }
 }
