@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { QuestionList } from "./question-list.entity";
 
 @Entity()
@@ -16,6 +16,9 @@ export class Question {
 
     @Column()
     questionListId: number;
+
+    @Column({ default: 0 })
+    usage: number;
 
     @ManyToOne(() => QuestionList, (questionList) => questionList.questions, {
         onDelete: "CASCADE",
